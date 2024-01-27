@@ -1,4 +1,4 @@
-# Calibrate 3.5" LCD Touchscreen With Arduino UNO R3/R4
+# Freely Paintable Canvas On 3.5" LCD Touchscreen With Arduino UNO R3/R4
 
 ![GitHub License](https://img.shields.io/github/license/Aditya-A-garwal/Arduino-TFT-3-5-Canvas-Paint)
 ![GitHub forks](https://img.shields.io/github/forks/Aditya-A-garwal/Arduino-TFT-3-5-Canvas-Paint?style=flat-square&color=blue)
