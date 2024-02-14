@@ -1,3 +1,5 @@
+#include "stdint.h"
+
 // display constants
 
 const uint16_t RED     = 0xF800;
@@ -39,11 +41,11 @@ const int YEND = 950;
 
 const uint16_t PAINT_WIDTH = 4;
 
-const uint16_t CANVAS_W = DISPLAY_WIDTH - 20;
-const uint16_t CANVAS_H = (DISPLAY_HEIGHT/4) * 3 - 20;
-
 const uint16_t CANVAS_X = 10;
 const uint16_t CANVAS_Y = 10;
+
+const uint16_t CANVAS_W = DISPLAY_WIDTH - (2 * CANVAS_X);
+const uint16_t CANVAS_H = (DISPLAY_HEIGHT/4) * 3 - (2 * CANVAS_Y);
 
 const uint16_t PAINT_RADIUS = 12;
 const uint16_t PAINT_OFFSET_X = 40;
