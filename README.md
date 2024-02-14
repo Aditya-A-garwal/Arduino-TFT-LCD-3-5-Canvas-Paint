@@ -1,13 +1,13 @@
-# Freely Paintable Canvas On 3.5" LCD Touchscreen With Arduino UNO R3/R4
+# Freely Paintable Canvas On 3.5" TFT LCD Touchscreen With Arduino UNO R3/R4
 
-![GitHub License](https://img.shields.io/github/license/Aditya-A-garwal/Arduino-TFT-3-5-Canvas-Paint)
-![GitHub forks](https://img.shields.io/github/forks/Aditya-A-garwal/Arduino-TFT-3-5-Canvas-Paint?style=flat-square&color=blue)
-![GitHub Repo stars](https://img.shields.io/github/stars/Aditya-A-garwal/Arduino-TFT-3-5-Canvas-Paint?style=flat-square&color=blue)
-![GitHub issues](https://img.shields.io/github/issues-raw/Aditya-A-garwal/Arduino-TFT-3-5-Canvas-Paint?style=flat-square&color=indianred)
-![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/Aditya-A-garwal/Arduino-TFT-3-5-Canvas-Paint?style=flat-square)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/Aditya-A-garwal/Arduino-TFT-3-5-Canvas-Paint?style=flat-square&color=indianred)
-![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/Aditya-A-garwal/Arduino-TFT-3-5-Canvas-Paint?style=flat-square)
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/Aditya-A-garwal/Arduino-TFT-3-5-Canvas-Paint/build.yml?style=flat-square)
+![GitHub License](https://img.shields.io/github/license/Aditya-A-garwal/Arduino-TFT-LCD-3-5-Canvas-Paint)
+![GitHub forks](https://img.shields.io/github/forks/Aditya-A-garwal/Arduino-TFT-LCD-3-5-Canvas-Paint?style=flat-square&color=blue)
+![GitHub Repo stars](https://img.shields.io/github/stars/Aditya-A-garwal/Arduino-TFT-LCD-3-5-Canvas-Paint?style=flat-square&color=blue)
+![GitHub issues](https://img.shields.io/github/issues-raw/Aditya-A-garwal/Arduino-TFT-LCD-3-5-Canvas-Paint?style=flat-square&color=indianred)
+![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/Aditya-A-garwal/Arduino-TFT-LCD-3-5-Canvas-Paint?style=flat-square)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/Aditya-A-garwal/Arduino-TFT-LCD-3-5-Canvas-Paint?style=flat-square&color=indianred)
+![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/Aditya-A-garwal/Arduino-TFT-LCD-3-5-Canvas-Paint?style=flat-square)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/Aditya-A-garwal/Arduino-TFT-LCD-3-5-Canvas-Paint/build.yml?style=flat-square)
 
 ## Overview
 
