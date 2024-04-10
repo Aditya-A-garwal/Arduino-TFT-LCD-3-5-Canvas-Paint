@@ -8,15 +8,15 @@
 
 MCUFRIEND_kbv tft;
 
-TouchScreen ts = TouchScreen(XP, YP, XM, YM, 300);
+TouchScreen ts(XP, YP, XM, YM, 300);
 
-uint16_t clr = WHITE;
-uint16_t thicknessId = 1;
+uint16_t pen_color = WHITE;
+uint16_t thickness_id = 1;
 
 // ----- begin helper math functions -----
 
-bool inRange(uint16_t value, uint16_t lo, uint16_t hi) {
-    return lo <= value && value <= hi;
+bool in_range(uint16_t value, uint16_t lo, uint16_t hi) {
+    return (lo <= value) && (value <= hi);
 }
 
 uint32_t distance(uint32_t x0, uint32_t y0, uint32_t x1, uint32_t y1) {
@@ -29,7 +29,7 @@ uint32_t distance(uint32_t x0, uint32_t y0, uint32_t x1, uint32_t y1) {
 
 // ----- begin functions to handle touch input -----
 
-void toDisplayMode() {
+void to_display_mode() {
 
     pinMode(XM, OUTPUT);
     pinMode(XP, OUTPUT);
@@ -37,7 +37,7 @@ void toDisplayMode() {
     pinMode(YP, OUTPUT);
 }
 
-void convertTouchCoors(uint16_t tx, uint16_t ty, uint16_t *xptr, uint16_t *yptr) {
+void convert_touch_coors(uint16_t tx, uint16_t ty, uint16_t *xptr, uint16_t *yptr) {
 
     tx = constrain(tx, XBEGIN, XEND);
     ty = constrain(ty, YBEGIN, YEND);
@@ -49,28 +49,28 @@ void convertTouchCoors(uint16_t tx, uint16_t ty, uint16_t *xptr, uint16_t *yptr)
     *yptr = ty;
 }
 
-void getTouchCoors(uint16_t *xptr, uint16_t *yptr) {
+void get_touch_coors(uint16_t *xptr, uint16_t *yptr) {
 
     TSPoint p;
 
     for (;;) {
 
         p = ts.getPoint();
-        if (inRange(p.z, PRESSURE_LEFT, PRESSURE_RIGHT)) {
+        if (in_range(p.z, PRESSURE_LEFT, PRESSURE_RIGHT)) {
             break;
         }
     }
-    convertTouchCoors(p.x, p.y, xptr, yptr);
-    toDisplayMode();
+    convert_touch_coors(p.x, p.y, xptr, yptr);
+    to_display_mode();
 }
 
 // ----- begin functions to draw widgets -----
 
-void drawCanvas() {
+void draw_canvas() {
     tft.drawRect(CANVAS_X, CANVAS_Y, CANVAS_W, CANVAS_H, WHITE);
 }
 
-void drawColorSelector() {
+void draw_color_selector() {
 
     uint16_t x, y, c;
 
@@ -86,7 +86,7 @@ void drawColorSelector() {
     }
 }
 
-void drawThicknessSelector() {
+void draw_size_selector() {
 
     uint16_t x, y, t;
 
@@ -97,10 +97,10 @@ void drawThicknessSelector() {
         t = THICKNESS_OPTIONS[i];
 
         // create a circle with the appropriate width
-        tft.fillCircle(x, y, t, clr);
+        tft.fillCircle(x, y, t, pen_color);
 
         // if the color has been changed
-        (i == thicknessId)
+        (i == thickness_id)
         ? tft.drawCircle(x, y, t + 3, WHITE)
         : tft.drawCircle(x, y, t + 3, BLACK);
     }
@@ -108,20 +108,20 @@ void drawThicknessSelector() {
 
 // ----- begin functions to update widgets -----
 
-void updateCanvas(uint16_t x, uint16_t y) {
+void update_canvas(uint16_t x, uint16_t y) {
 
-    uint16_t t = THICKNESS_OPTIONS[thicknessId];
+    uint16_t t = THICKNESS_OPTIONS[thickness_id];
 
     // if the pen is within the canvas (along with some additional internal padding)
     // the internal padding is added to ensure the ink does not cross the border
-    if (inRange(x, CANVAS_X + t + 2, CANVAS_X + CANVAS_W - t - 2)
-            && inRange(y, CANVAS_Y + t + 2, CANVAS_Y + CANVAS_H - t - 2)) {
+    if (in_range(x, CANVAS_X + t + 2, CANVAS_X + CANVAS_W - t - 2)
+            && in_range(y, CANVAS_Y + t + 2, CANVAS_Y + CANVAS_H - t - 2)) {
 
-        tft.fillCircle(x, y, t, clr);
+        tft.fillCircle(x, y, t, pen_color);
     }
 }
 
-void updateColorSelection(uint16_t x, uint16_t y) {
+void update_color_selection(uint16_t x, uint16_t y) {
 
     uint32_t x0, y0, d;
 
@@ -135,14 +135,14 @@ void updateColorSelection(uint16_t x, uint16_t y) {
         // and the pen is less than the radius of the paint
         if (d <= PAINT_RADIUS) {
 
-            clr = tft.readPixel(x, y);
-            drawThicknessSelector();
+            pen_color = tft.readPixel(x, y);
+            draw_size_selector();
             break;
         }
     }
 }
 
-void updateThicknessSelection(uint16_t x, uint16_t y) {
+void update_size_selection(uint16_t x, uint16_t y) {
 
     uint32_t x0, y0, d;
 
@@ -156,8 +156,8 @@ void updateThicknessSelection(uint16_t x, uint16_t y) {
         // and the pen is less than the radius of the paint
         if (d <= THICKNESS_OPTIONS[i]) {
 
-            thicknessId = i;
-            drawThicknessSelector();
+            thickness_id = i;
+            draw_size_selector();
             break;
         }
     }
@@ -174,20 +174,20 @@ void setup(void) {
     tft.fillScreen(BLACK);
 
     // draw widgets
-    drawCanvas();
-    drawColorSelector();
-    drawThicknessSelector();
+    draw_canvas();
+    draw_color_selector();
+    draw_size_selector();
 }
 
 void loop(void) {
 
     uint16_t x, y;
-    getTouchCoors(&x, &y);
+    get_touch_coors(&x, &y);
 
     // update each widget
-    updateCanvas(x, y);
-    updateColorSelection(x, y);
-    updateThicknessSelection(x, y);
+    update_canvas(x, y);
+    update_color_selection(x, y);
+    update_size_selection(x, y);
 
     delay(5);
 }
