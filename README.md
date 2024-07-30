@@ -34,6 +34,9 @@ pio run
 pio run --target upload
 ```
 
+> [!TIP]
+> A detailed tutorial on how to use this repository **with video demonstration** is available at https://dumblebots.com/2024/07/27/using-3-5-tft-lcd-display-ili9486-arduino-part-5-paint-app/. The tutorial includes a comprehensive explanation of the code.
+
 ## Building/Uploading With Arduino IDE
 
 Create a new sketch and copy the contents of [```src/main.cpp```](/src/main.cpp) from this repository into the default ```.ino``` file. Create a new tab/file in the IDE named ```constants.h``` and copy the contents of [```src/constants.h```](/src/constants.h) from this repository into this file.
@@ -47,7 +50,12 @@ After this, you can Build and Upload the program as usual.
 
 ## Using the Example
 
-As soon as the program is uploaded, the display should turn black and the following widgets should be displays -
+As soon as the program is uploaded, the display should turn black and the following widgets should be displayed -
+
+|![Labelled images of display with widgets](/images/Labelled_app.png)|
+|:-:|
+|Widgets on canvas app|
+
 
 - *Color Selection Grid* with 9 colors to choose from (bottom-left of the screen)
 - *Thickness Selection Grid* with 4 sizes to choose from (bottom-right of the screen)
