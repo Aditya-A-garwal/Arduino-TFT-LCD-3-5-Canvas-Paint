@@ -24,6 +24,9 @@ Most 3.5" LCD Touch displays use the ILI9486 Display Driver and include a resist
 
 The program has been written using PlatformIO, and has been tested on the [Arduino UNO R3](https://docs.arduino.cc/hardware/uno-rev3/), [Arduino UNO R4 Minima](https://docs.arduino.cc/hardware/uno-r4-minima/) & [Arduino UNO R4 WiFi](https://docs.arduino.cc/hardware/uno-r4-wifi/).
 
+> [!NOTE]
+> A WiFi enabled version of this project can be found at https://github.com/Aditya-A-garwal/Arduino-WiFi-TFT-LCD-Canvas-App. The project allows saving/loading images from a server, dynamically connected to a WiFI network (using a touchscreen keyboard).
+
 ## Building/Uploading With PlatformIO
 
 Since this project has been written using PlatformIO by default, simply run the following commands to fetch the libraries, build the project and upload the program -
